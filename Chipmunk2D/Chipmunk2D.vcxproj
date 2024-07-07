@@ -74,7 +74,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -106,12 +111,78 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Include\chipmunk\chipmunk.h" />
+    <ClInclude Include="Include\chipmunk\chipmunk_ffi.h" />
+    <ClInclude Include="Include\chipmunk\chipmunk_private.h" />
+    <ClInclude Include="Include\chipmunk\chipmunk_structs.h" />
+    <ClInclude Include="Include\chipmunk\chipmunk_types.h" />
+    <ClInclude Include="Include\chipmunk\chipmunk_unsafe.h" />
+    <ClInclude Include="Include\chipmunk\cpArbiter.h" />
+    <ClInclude Include="Include\chipmunk\cpBB.h" />
+    <ClInclude Include="Include\chipmunk\cpBody.h" />
+    <ClInclude Include="Include\chipmunk\cpConstraint.h" />
+    <ClInclude Include="Include\chipmunk\cpDampedRotarySpring.h" />
+    <ClInclude Include="Include\chipmunk\cpDampedSpring.h" />
+    <ClInclude Include="Include\chipmunk\cpGearJoint.h" />
+    <ClInclude Include="Include\chipmunk\cpGrooveJoint.h" />
+    <ClInclude Include="Include\chipmunk\cpHastySpace.h" />
+    <ClInclude Include="Include\chipmunk\cpMarch.h" />
+    <ClInclude Include="Include\chipmunk\cpPinJoint.h" />
+    <ClInclude Include="Include\chipmunk\cpPivotJoint.h" />
+    <ClInclude Include="Include\chipmunk\cpPolyline.h" />
+    <ClInclude Include="Include\chipmunk\cpPolyShape.h" />
+    <ClInclude Include="Include\chipmunk\cpRatchetJoint.h" />
+    <ClInclude Include="Include\chipmunk\cpRobust.h" />
+    <ClInclude Include="Include\chipmunk\cpRotaryLimitJoint.h" />
+    <ClInclude Include="Include\chipmunk\cpShape.h" />
+    <ClInclude Include="Include\chipmunk\cpSimpleMotor.h" />
+    <ClInclude Include="Include\chipmunk\cpSlideJoint.h" />
+    <ClInclude Include="Include\chipmunk\cpSpace.h" />
+    <ClInclude Include="Include\chipmunk\cpSpatialIndex.h" />
+    <ClInclude Include="Include\chipmunk\cpTransform.h" />
+    <ClInclude Include="Include\chipmunk\cpVect.h" />
+    <ClInclude Include="Source\prime.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\chipmunk.c" />
+    <ClCompile Include="Source\cpArbiter.c" />
+    <ClCompile Include="Source\cpArray.c" />
+    <ClCompile Include="Source\cpBBTree.c" />
+    <ClCompile Include="Source\cpBody.c" />
+    <ClCompile Include="Source\cpCollision.c" />
+    <ClCompile Include="Source\cpConstraint.c" />
+    <ClCompile Include="Source\cpDampedRotarySpring.c" />
+    <ClCompile Include="Source\cpDampedSpring.c" />
+    <ClCompile Include="Source\cpGearJoint.c" />
+    <ClCompile Include="Source\cpGrooveJoint.c" />
+    <ClCompile Include="Source\cpHashSet.c" />
+    <ClCompile Include="Source\cpHastySpace.c" />
+    <ClCompile Include="Source\cpMarch.c" />
+    <ClCompile Include="Source\cpPinJoint.c" />
+    <ClCompile Include="Source\cpPivotJoint.c" />
+    <ClCompile Include="Source\cpPolyline.c" />
+    <ClCompile Include="Source\cpPolyShape.c" />
+    <ClCompile Include="Source\cpRatchetJoint.c" />
+    <ClCompile Include="Source\cpRobust.c" />
+    <ClCompile Include="Source\cpRotaryLimitJoint.c" />
+    <ClCompile Include="Source\cpShape.c" />
+    <ClCompile Include="Source\cpSimpleMotor.c" />
+    <ClCompile Include="Source\cpSlideJoint.c" />
+    <ClCompile Include="Source\cpSpace.c" />
+    <ClCompile Include="Source\cpSpaceComponent.c" />
+    <ClCompile Include="Source\cpSpaceDebug.c" />
+    <ClCompile Include="Source\cpSpaceHash.c" />
+    <ClCompile Include="Source\cpSpaceQuery.c" />
+    <ClCompile Include="Source\cpSpaceStep.c" />
+    <ClCompile Include="Source\cpSpatialIndex.c" />
+    <ClCompile Include="Source\cpSweep1D.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
